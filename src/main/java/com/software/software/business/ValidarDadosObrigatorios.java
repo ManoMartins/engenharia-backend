@@ -105,11 +105,6 @@ public class ValidarDadosObrigatorios implements IStrategy {
                 sb.append("Logradouro é obrigatório!\n");
             }
 
-            String complemento = fornecedor.getEndereco().getComplemento();
-            if (complemento == null || complemento.equals("")) {
-                sb.append("Complemento é obrigatório!\n");
-            }
-
             String cidade = fornecedor.getEndereco().getCidade().getDescricao();
             if (cidade == null || cidade.equals("")) {
                 sb.append("Cidade é obrigatório!\n");
@@ -147,7 +142,7 @@ public class ValidarDadosObrigatorios implements IStrategy {
             sb.append("Telefone é obrigatório!\n");
         }
 
-        if (fornecedor.getCnaes() != null) {
+        if (fornecedor.getCnaes() != null && fornecedor.getCnaes().size() > 0) {
             ArrayList<Cnae> cnaes = fornecedor.getCnaes();
 
             for (Cnae cnae : cnaes) {
@@ -161,7 +156,7 @@ public class ValidarDadosObrigatorios implements IStrategy {
             sb.append("Digite pelo menos um cnae!\n");
         }
 
-        if (fornecedor.getEmpresas() != null) {
+        if (fornecedor.getEmpresas() != null && fornecedor.getEmpresas().size() > 0) {
             ArrayList<Empresa> empresas = fornecedor.getEmpresas();
 
             for (Empresa empresa : empresas) {
@@ -171,10 +166,10 @@ public class ValidarDadosObrigatorios implements IStrategy {
                 }
             }
         } else {
-            sb.append("Digite pelo menos uma empresa!\n");
+            sb.append("Selecione pelo menos um tipo empresa!\n");
         }
 
-        if (fornecedor.getProdutos() != null) {
+        if (fornecedor.getProdutos() != null && fornecedor.getProdutos().size() > 0) {
             ArrayList<Produto> produtos = fornecedor.getProdutos();
 
             for (Produto produto : produtos) {
@@ -192,7 +187,7 @@ public class ValidarDadosObrigatorios implements IStrategy {
             sb.append("Digite pelo menos um produto!\n");
         }
 
-        if (fornecedor.getServicos() != null) {
+        if (fornecedor.getServicos() != null && fornecedor.getServicos().size() > 0) {
             ArrayList<Servico> servicos = fornecedor.getServicos();
 
             for (Servico servico : servicos) {

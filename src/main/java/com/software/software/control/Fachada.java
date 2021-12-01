@@ -1,10 +1,7 @@
 package com.software.software.control;
 
 import com.software.software.Resultado;
-import com.software.software.business.IStrategy;
-import com.software.software.business.ValidadorCNPJ;
-import com.software.software.business.ValidarDadosObrigatorios;
-import com.software.software.business.ValidarUnicidadeCNPJ;
+import com.software.software.business.*;
 import com.software.software.dao.FornecedorDao;
 import com.software.software.dao.IDAO;
 import com.software.software.domain.EntidadeDominio;
@@ -33,15 +30,21 @@ public class Fachada implements IFachada {
         ValidadorCNPJ validadorCNPJ = new ValidadorCNPJ();
         ValidarDadosObrigatorios validarDadosObrigatorios = new ValidarDadosObrigatorios();
         ValidarUnicidadeCNPJ validarUnicidadeCNPJ = new ValidarUnicidadeCNPJ();
+        ValidarCEP validarCEP = new ValidarCEP();
+        ValidarCnaeUnico validarCnaeUnico = new ValidarCnaeUnico();
 
         ArrayList<IStrategy> rnsFornecedorSalvar = new ArrayList<IStrategy>();
         rnsFornecedorSalvar.add(validadorCNPJ);
         rnsFornecedorSalvar.add(validarDadosObrigatorios);
         rnsFornecedorSalvar.add(validarUnicidadeCNPJ);
+        rnsFornecedorSalvar.add(validarCEP);
+        rnsFornecedorSalvar.add(validarCnaeUnico);
 
         ArrayList<IStrategy> rnsFornecedorAlterar = new ArrayList<IStrategy>();
         rnsFornecedorAlterar.add(validadorCNPJ);
         rnsFornecedorAlterar.add(validarDadosObrigatorios);
+        rnsFornecedorAlterar.add(validarCEP);
+        rnsFornecedorAlterar.add(validarCnaeUnico);
 
         rnsSalvar.put(Fornecedor.class.getName(), rnsFornecedorSalvar);
         rnsAlterar.put(Fornecedor.class.getName(), rnsFornecedorAlterar);
