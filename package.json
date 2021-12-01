@@ -1,0 +1,8 @@
+{
+  "name": "software",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.3.4"
+  }
+}
