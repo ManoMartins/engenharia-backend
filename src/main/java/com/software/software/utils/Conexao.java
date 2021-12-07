@@ -12,9 +12,9 @@ public class Conexao {
 
     public static Connection getConnectionPostgres() throws ClassNotFoundException, SQLException {
         driver = "org.postgresql.Driver";
-        url = "jdbc:postgresql://localhost:5432/es3";
-        user = "docker";
-        password = "docker";
+        url = "jdbc:postgresql://192.168.99.100:5432/es3";
+        user = "postgres";
+        password = "123456";
         return getConnection();
     }
 

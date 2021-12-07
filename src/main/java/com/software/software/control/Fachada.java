@@ -31,6 +31,7 @@ public class Fachada implements IFachada {
         ValidarDadosObrigatorios validarDadosObrigatorios = new ValidarDadosObrigatorios();
         ValidarUnicidadeCNPJ validarUnicidadeCNPJ = new ValidarUnicidadeCNPJ();
         ValidarCEP validarCEP = new ValidarCEP();
+        ValidarEmail validarEmail = new ValidarEmail();
         ValidarCnaeUnico validarCnaeUnico = new ValidarCnaeUnico();
 
         ArrayList<IStrategy> rnsFornecedorSalvar = new ArrayList<IStrategy>();
@@ -39,12 +40,14 @@ public class Fachada implements IFachada {
         rnsFornecedorSalvar.add(validarUnicidadeCNPJ);
         rnsFornecedorSalvar.add(validarCEP);
         rnsFornecedorSalvar.add(validarCnaeUnico);
+        rnsFornecedorSalvar.add(validarEmail);
 
         ArrayList<IStrategy> rnsFornecedorAlterar = new ArrayList<IStrategy>();
         rnsFornecedorAlterar.add(validadorCNPJ);
         rnsFornecedorAlterar.add(validarDadosObrigatorios);
         rnsFornecedorAlterar.add(validarCEP);
         rnsFornecedorAlterar.add(validarCnaeUnico);
+        rnsFornecedorAlterar.add(validarEmail);
 
         rnsSalvar.put(Fornecedor.class.getName(), rnsFornecedorSalvar);
         rnsAlterar.put(Fornecedor.class.getName(), rnsFornecedorAlterar);
